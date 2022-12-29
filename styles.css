@@ -1,0 +1,358 @@
+@font-face {
+  font-family: "Inter-Regular";
+  src: url("/assets/fonts/static/Inter-Regular.ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Inter-Bold";
+  src: url("/assets/fonts/static/Inter-Bold.ttf");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Inter-ExtraBold";
+  src: url("/assets/fonts/static/Inter-ExtraBold.ttf");
+  font-weight: 800;
+}
+
+:root {
+  --grayish-blue: hsl(233, 8%, 79%);
+  --off-white: hsl(36, 100%, 99%);
+  --dark-grayish-blue: hsl(236, 13%, 42%);
+  --very-dark-blue: hsl(240, 100%, 5%);
+  --soft-orange: hsl(35, 77%, 62%);
+  --soft-red: hsl(5, 85%, 63%);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--very-dark-blue);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--soft-red);
+}
+
+body {
+  overflow-x: hidden;
+  margin: 1rem;
+  padding: 1.5rem 0;
+  background-color: var(--off-white);
+}
+
+p {
+  font-size: clamp(13px, 3vw, 15px);
+}
+
+nav {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  font-family: "Inter-Regular";
+  align-items: center;
+}
+
+.menu-list {
+  font-family: "Inter-Bold";
+  flex-direction: column;
+  display: flex;
+  height: 100vh;
+  gap: 2rem;
+  background-color: var(--off-white);
+  width: 60%;
+  right: 0;
+  top: 0;
+  position: absolute;
+  justify-content: center;
+  transform: translateX(100%);
+  transition: ease-out 250ms;
+  margin: 0;
+  z-index: 2;
+  position: fixed;
+}
+
+.nav-open .menu-list {
+  transform: translateX(0%);
+}
+
+.menu-list li {
+  list-style-type: none;
+}
+
+.menu-list li a {
+  text-decoration: none;
+  color: var(--very-dark-blue);
+}
+
+.menu-list li a:hover {
+  color: var(--soft-red);
+}
+
+.overlay {
+  background: hsl(240, 100%, 5%, 0.5);
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.show-overlay .overlay {
+  display: block;
+}
+
+.hamburger-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.hamburger-button .line {
+  transition: y 200ms ease-in 200ms, rotate 200ms ease-in, opacity 0ms 200ms;
+  transform-origin: center;
+}
+
+.hamburger-button[aria-expanded="true"] .line {
+  transition: y 200ms ease-in, rotate 200ms ease-in 200ms, opacity 0ms 200ms;
+}
+
+.hamburger-button[aria-expanded="true"] :is(.top, .bottom) {
+  y: 45;
+}
+
+.hamburger-button[aria-expanded="true"] .top {
+  rotate: 45deg;
+}
+
+.hamburger-button[aria-expanded="true"] .middle {
+  opacity: 0;
+}
+
+.hamburger-button[aria-expanded="true"] .bottom {
+  rotate: -45deg;
+}
+
+.logo img {
+  width: 45px;
+  height: 28px;
+}
+
+.web3-item1 h1 {
+  font-family: "Inter-ExtraBold";
+  font-size: clamp(35px, 4.5vw, 50px);
+  margin: 1rem 0;
+  color: var(--very-dark-blue);
+}
+
+.web3-item2 p {
+  font-family: "Inter-Regular";
+  color: var(--dark-grayish-blue);
+  margin: 0;
+  line-height: 1.4rem;
+}
+
+.web3-item2 button {
+  width: 185px;
+  height: 48px;
+  background-color: var(--soft-red);
+  color: var(--off-white);
+  font-family: "Inter-Bold";
+  text-transform: uppercase;
+  letter-spacing: 0.25rem;
+  border: none;
+  margin-top: 1.5rem;
+}
+
+.web3-item2 button:hover {
+  cursor: pointer;
+  background-color: var(--very-dark-blue);
+}
+
+.web3-img {
+  background-image: url("/assets/images/image-web-3-mobile.jpg");
+  height: 300px;
+  background-size: cover;
+}
+
+.section-new {
+  margin-top: 4rem;
+  background-color: var(--very-dark-blue);
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+}
+
+.section-new h2 {
+  color: var(--soft-orange);
+  font-family: "Inter-Bold";
+  font-size: clamp(30px, 3vw, 35px);
+  margin: 0;
+}
+
+.section-new section h3 {
+  margin: 0;
+  color: var(--off-white);
+  font-family: "Inter-Bold";
+}
+
+.section-new section h3:hover {
+  color: var(--soft-orange);
+  cursor: pointer;
+}
+
+.section-new section p {
+  color: var(--grayish-blue);
+  font-family: "Inter-Regular";
+  line-height: 1.6rem;
+  margin: 0.5rem 0;
+}
+
+.section-new section:nth-of-type(1),
+.section-new section:nth-of-type(2) {
+  border-bottom: solid 1px var(--dark-grayish-blue);
+  padding: 1.5rem 0;
+}
+
+.section-new section:nth-of-type(3) {
+  padding-top: 1.5rem;
+}
+
+.section-top3 {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.875rem;
+}
+
+.section-top3 section {
+  display: flex;
+  flex-direction: row;
+  height: max-content;
+  align-items: center;
+}
+
+.section-top3 img {
+  height: 127px;
+}
+
+.section-top3 section span {
+  padding-left: 1.4rem;
+}
+
+.section-top3 section h2 {
+  font-family: "Inter-Bold";
+  font-size: clamp(30px, 3vw, 34px);
+  color: var(--grayish-blue);
+  margin: 0;
+}
+
+.section-top3 section h3 {
+  margin: 0;
+  padding: 0.5rem 0;
+  font-family: "Inter-ExtraBold";
+  color: var(--very-dark-blue);
+  font-size: clamp(16px, 3vw, 18px);
+}
+
+.section-top3 section h3:hover {
+  cursor: pointer;
+  color: var(--soft-red);
+}
+
+.section-top3 section p {
+  color: var(--dark-grayish-blue);
+  line-height: 1.4rem;
+  font-family: "Inter-Regular";
+  margin: 0;
+}
+
+@media (min-width: 850px) {
+  body {
+    padding: 1rem;
+    max-width: 1100px;
+    margin-inline: auto;
+    overflow-x: hidden;
+  }
+  .web3-img {
+    background-image: url("/assets/images/image-web-3-desktop.jpg");
+    background-size: cover;
+  }
+  main {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    gap: 1.875rem;
+  }
+  .section-web3 {
+    display: grid;
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+  }
+  .section-new {
+    margin-top: 0rem;
+    grid-column: 3;
+    grid-row: 1 / 2;
+  }
+  .section-top3 {
+    grid-column: 1 / 4;
+    grid-row: 2;
+    flex-direction: row;
+    height: max-content;
+  }
+  .top3-item1,
+  .top3-item2,
+  .top3-item3 {
+    width: 33%;
+  }
+  .web3-container {
+    display: flex;
+    width: 100%;
+    gap: 1.875rem;
+    margin-top: 2rem;
+  }
+  .web3-item1,
+  .web3-item2 {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+  }
+  .web3-item1 h1 {
+    margin: 0;
+    padding-right: 0.5rem;
+  }
+  .logo img {
+    object-fit: contain;
+    width: 64px;
+    height: 44px;
+  }
+  nav {
+    margin-bottom: 3rem;
+  }
+  .menu-list {
+    height: max-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2.5rem;
+    position: static;
+    transform: translateX(0%);
+    float: right;
+    justify-content: end;
+  }
+  .menu-list li a {
+    font-family: "Inter-Regular";
+    color: var(--dark-grayish-blue);
+  }
+  .hamburger-button {
+    display: none;
+  }
+}
